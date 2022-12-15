@@ -1,0 +1,258 @@
+*, ::after, ::before {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  list-style: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 80rem;
+}
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 0.2rem;
+}
+
+#navBar {
+  background-color: #fffd;
+  padding-top: 1rem;
+  position: sticky;
+  top: 0;
+}
+#navBar .container {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+#navBar label {
+  margin: 1rem;
+}
+#navBar label #query {
+  box-shadow: 0 0.15rem 1rem #0000001a;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5rem;
+  text-align: center;
+  min-width: 17.5rem;
+  font-size: 0.98rem;
+  color: #444;
+  border: none;
+}
+#navBar label[for=inStock] {
+  user-select: none;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+#navBar label[for=inStock] #inStock {
+  margin-right: 0.3rem;
+  cursor: inherit;
+}
+#navBar #shoppingCart {
+  position: absolute;
+  cursor: pointer;
+  right: 1.5rem;
+  top: 1.5rem;
+}
+#navBar #shoppingCart svg {
+  color: #555;
+  height: 30px;
+  width: 30px;
+}
+#navBar #shoppingDesk {
+  box-shadow: 0 0.35rem 1.5rem #0000001c;
+  background-color: #fffe;
+  border-radius: 0.5rem;
+  position: absolute;
+  visibility: hidden;
+  transition: 0.15s;
+  overflow-y: auto;
+  width: 17.5rem;
+  height: 21rem;
+  padding: 1rem;
+  top: 3.5rem;
+  right: 1rem;
+  opacity: 0;
+}
+#navBar #shoppingDesk #shoppingTable {
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+}
+#navBar #shoppingDesk #shoppingTable img {
+  box-shadow: 0 0 1rem #0002;
+  border-radius: 0.2rem;
+  object-fit: cover;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+#navBar #shoppingDesk #shoppingTable tr {
+  transition: 0.25s;
+}
+#navBar #shoppingDesk #shoppingTable tr:first-child td {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  position: sticky;
+  padding: 1rem 0;
+  top: 0;
+}
+#navBar #shoppingDesk #shoppingTable tr:not(:first-child):hover {
+  background-color: crimson;
+  cursor: pointer;
+  color: #fff;
+}
+#navBar #shoppingDesk #shoppingTable td {
+  padding: 0.5rem 0;
+}
+#navBar #shoppingDesk #shoppingTable td:last-child {
+  color: darkgoldenrod;
+}
+#navBar #shoppingDesk p {
+  text-shadow: 0 0 1rem #0005;
+  box-shadow: 0 0 1rem #0002;
+  border-radius: 0.25rem;
+  line-height: 17rem;
+  text-align: center;
+  font-size: 2rem;
+  color: #777;
+}
+
+#hopShop {
+  padding: 1rem 0;
+}
+#hopShop #products {
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+#hopShop #products .product {
+  box-shadow: 0 0.35rem 1.5rem #0000001c;
+  border-radius: 0.5rem;
+  max-width: 17.5rem;
+  padding: 0.5rem;
+  display: none;
+  margin: 1rem;
+}
+#hopShop #products .product img {
+  background-color: #ddd;
+  border-radius: 0.25rem;
+  object-fit: cover;
+  display: block;
+  width: 16.5rem;
+  height: 13rem;
+}
+#hopShop #products .product .title {
+  text-align: center;
+  margin: 1rem;
+}
+#hopShop #products .product .price {
+  color: darkgoldenrod;
+  padding-left: 1rem;
+  font-weight: bold;
+}
+#hopShop #products .product .bottom {
+  justify-content: space-between;
+  margin: 1rem 0.5rem 0.5rem;
+  font-size: 0.95rem;
+  display: flex;
+}
+#hopShop #products .product .bottom span {
+  box-shadow: 0 0.15rem 0.75rem #0000001a;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  transition: 0.25s;
+  cursor: pointer;
+  color: gray;
+}
+#hopShop #products .product .bottom span:hover {
+  color: #333;
+}
+#hopShop #products .product .bottom span:hover:first-child {
+  background-color: #e5e5e5;
+}
+#hopShop #products .product .bottom span:hover:last-child {
+  box-shadow: 0 0.15rem 0.75rem greenyellow;
+  background-color: greenyellow;
+}
+
+#modal {
+  background-color: #0003;
+  visibility: hidden;
+  transition: 0.25s;
+  position: fixed;
+  z-index: 999;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+#modal .container {
+  position: relative;
+  height: 100%;
+}
+#modal .container #closeModal {
+  background-color: #f007;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+  line-height: 2.5rem;
+  position: absolute;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+  transition: 0.25s;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #fff;
+  right: 0;
+  top: 0;
+}
+#modal .container #closeModal:hover {
+  background-color: crimson;
+}
+#modal .container #modalContent {
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  display: flex;
+  height: 95%;
+}
+#modal .container #modalContent > div {
+  background-color: #fff;
+  border-radius: 0.35rem;
+  max-height: 50rem;
+  overflow-y: auto;
+  max-width: 50rem;
+  padding: 5vw;
+  height: 100%;
+}
+#modal .container #modalContent > div img {
+  border-radius: 0.35rem;
+  margin-bottom: 2rem;
+  object-fit: cover;
+  display: block;
+  width: 100%;
+}
+#modal .container #modalContent > div p {
+  padding: 0.5rem;
+}
+
+/*# sourceMappingURL=main.css.map */
